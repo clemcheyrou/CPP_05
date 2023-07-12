@@ -6,7 +6,7 @@
 /*   By: ccheyrou <ccheyrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 14:43:15 by ccheyrou          #+#    #+#             */
-/*   Updated: 2023/05/19 17:41:24 by ccheyrou         ###   ########.fr       */
+/*   Updated: 2023/07/12 16:20:24 by ccheyrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <iostream>
 # include <exception>
 # include "AForm.hpp"
+
 # define ORANGE "\033[33m"
 # define GREEN "\033[32m"
 # define RED "\033[31m"
@@ -26,8 +27,8 @@ class AForm;
 class Bureaucrat {
 
 private:
-	std::string _name;
-	int			_grade;
+	std::string const	_name;
+	int					_grade;
 
 public:
 	Bureaucrat();
@@ -43,7 +44,7 @@ public:
 	int incrementGrade();
 	int decrementGrade();
 	
-	void signForm(AForm const &form) const;
+	void signForm(AForm &form);
 
 	void executeForm(AForm const & form);
 

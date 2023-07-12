@@ -6,7 +6,7 @@
 /*   By: ccheyrou <ccheyrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 21:40:02 by ccheyrou          #+#    #+#             */
-/*   Updated: 2023/05/23 12:04:24 by ccheyrou         ###   ########.fr       */
+/*   Updated: 2023/07/12 16:44:22 by ccheyrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 AForm::AForm() : _name("default"), _grade_signed(150), _grade_exec(150), _signed(false)
 {
-	std::cout << GREEN "Constructor" CLOSE " called" << std::endl;
-	return;
+	std::cout << GREEN "Constructor AForm" CLOSE " called" << std::endl;
+	return ;
 }
 
 AForm::AForm(std::string name, const int grade_signed, const int grade_exec) : _name(name), _grade_signed(grade_signed), _grade_exec(grade_exec), _signed(false)
@@ -24,50 +24,46 @@ AForm::AForm(std::string name, const int grade_signed, const int grade_exec) : _
 		throw GradeTooHighException();
 	if (_grade_signed > 150)
 		throw GradeTooLowException();
-	std::cout << GREEN "Constructor" CLOSE " called" << std::endl;
-	return;
-}
-
-AForm::AForm( const AForm &copy ) :  _grade_signed(copy._grade_signed), _grade_exec(copy._grade_exec)
-{
-	_name = copy._name;
-	_signed = copy._signed;
+	std::cout << GREEN "Constructor AForm" CLOSE " called" << std::endl;
+	return ;
 }
 
 AForm::~AForm()
 {
-	std::cout << RED "Destructor" CLOSE " called" << std::endl;	
-	return;
+	std::cout << RED "Destructor AForm" CLOSE " called" << std::endl;	
+	return ;
 }
 
-AForm& AForm::operator=( AForm const & rhs )
+AForm::AForm(const AForm &copy) : _name(copy._name), _grade_signed(copy._grade_signed), _grade_exec(copy._grade_exec)
+{
+	_signed = copy._signed;
+}
+
+AForm& AForm::operator=(AForm const & rhs)
 {
 	if (this != &rhs)
-	{
-		_name = rhs._name;
 		_signed = rhs._signed;
-	}
-	return(*this);
+	return (*this);
 }
 
 std::string AForm::getName() const
 {
-	return(_name);
+	return (_name);
 }
 
 int AForm::getGradeSigned() const
 {
-	return(_grade_signed);
+	return (_grade_signed);
 }
 
 int AForm::getGradeExec() const
 {
-	return(_grade_exec);
+	return (_grade_exec);
 }
 
 bool AForm::getSigned() const
 {
-	return(_signed);
+	return (_signed);
 }
 
 void AForm::beSigned(Bureaucrat const &bureaucrat)
@@ -87,5 +83,5 @@ std::ostream &operator<<( std::ostream &flux, AForm const& form)
 	flux << "\nGrade necessary to sign : " << form.getGradeSigned();
 	flux << "\nGrade necessary to execute : " << form.getGradeExec();
 	flux << "\n0 if not signed - 1 if signed : " << form.getSigned();
-	return(flux);
+	return (flux);
 }

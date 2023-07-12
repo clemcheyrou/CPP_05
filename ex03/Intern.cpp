@@ -6,7 +6,7 @@
 /*   By: ccheyrou <ccheyrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 16:47:07 by ccheyrou          #+#    #+#             */
-/*   Updated: 2023/05/22 18:02:12 by ccheyrou         ###   ########.fr       */
+/*   Updated: 2023/07/12 16:51:19 by ccheyrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,25 +16,28 @@ typedef AForm* (Intern::*pf)(std::string const & target);
 
 Intern::Intern()
 {
-};
+	std::cout << GREEN "Constructor Intern" CLOSE " called" << std::endl;
+	return ;
+}
 
 Intern::Intern( Intern const &copy )
 {
-	if (this != &copy)
-	{};
-	return;
-};
+	*this = copy;
+	return ;
+}
 
 Intern::~Intern()
 {
-};
+	std::cout << RED "Destructor Intern" CLOSE " called" << std::endl;
+	return ;
+}
 
 Intern& Intern::operator=( Intern const & rhs )
 {
 	if (this != &rhs)
-	{};
+		*this = rhs;
 	return (*this);
-};
+}
 
 AForm* Intern::formshub(std::string const & target)
 {
@@ -64,6 +67,6 @@ AForm* Intern::makeForm( std::string const & nameform, std::string const & targe
 			return((this->*funcs[i])(target));
 		}
 	}
-	std::cout << "Form doesn't exist! Choose between : shrubbery, presidential, robotomy" << std::endl;
+	throw FormNotCreated();
 	return (NULL);
 }

@@ -6,22 +6,22 @@
 /*   By: ccheyrou <ccheyrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 22:57:59 by ccheyrou          #+#    #+#             */
-/*   Updated: 2023/07/10 17:33:21 by ccheyrou         ###   ########.fr       */
+/*   Updated: 2023/07/12 16:45:18 by ccheyrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm() : AForm("Shrubbery",145,137), _target("default")
+PresidentialPardonForm::PresidentialPardonForm() : AForm("Presidential",25,5), _target("default")
 {
-	std::cout << GREEN "Constructor" CLOSE " called" << std::endl;
-	return;
+	std::cout << GREEN "Constructor PresidentialPardonForm" CLOSE " called" << std::endl;
+	return ;
 }
 
-PresidentialPardonForm::PresidentialPardonForm(std::string target) : AForm("Shrubbery",145, 137) , _target(target)
+PresidentialPardonForm::PresidentialPardonForm(std::string target) : AForm("Presidential",25, 5) , _target(target)
 {
-	std::cout << GREEN "Constructor" CLOSE " called" << std::endl;
-	return;
+	std::cout << GREEN "Constructor PresidentialPardonForm" CLOSE " called" << std::endl;
+	return ;
 }
 
 PresidentialPardonForm::PresidentialPardonForm( PresidentialPardonForm const &copy ) : AForm(copy._name, copy._grade_signed, copy._grade_exec)
@@ -32,15 +32,15 @@ PresidentialPardonForm::PresidentialPardonForm( PresidentialPardonForm const &co
 
 PresidentialPardonForm::~PresidentialPardonForm()
 {
-	std::cout << RED "Destructor" CLOSE " called" << std::endl;	
-	return;
+	std::cout << RED "Destructor PresidentialPardonForm" CLOSE " called" << std::endl;	
+	return ;
 }
 
 PresidentialPardonForm&  PresidentialPardonForm::operator=( PresidentialPardonForm const & rhs )
 {
 	if (this != &rhs)
 		_signed = rhs._signed;
-	return(*this);	
+	return (*this);	
 }
 
 void PresidentialPardonForm::execute(Bureaucrat const & executor) const
@@ -52,5 +52,5 @@ void PresidentialPardonForm::execute(Bureaucrat const & executor) const
 	}
 	else
 		throw GradeTooLowException();	
-	return;	
+	return ;	
 }

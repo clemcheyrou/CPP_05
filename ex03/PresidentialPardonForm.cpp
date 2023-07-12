@@ -6,21 +6,21 @@
 /*   By: ccheyrou <ccheyrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 22:57:59 by ccheyrou          #+#    #+#             */
-/*   Updated: 2023/05/22 16:07:29 by ccheyrou         ###   ########.fr       */
+/*   Updated: 2023/07/12 16:15:01 by ccheyrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm() : AForm("Shrubbery",145,137), _target("default")
+PresidentialPardonForm::PresidentialPardonForm() : AForm("Presidential",25,5), _target("default")
 {
-	std::cout << GREEN "Constructor" CLOSE " called" << std::endl;
+	std::cout << GREEN "Constructor PresidentialPardonForm " CLOSE "called" << std::endl;
 	return;
 }
 
-PresidentialPardonForm::PresidentialPardonForm(std::string target) : AForm("Shrubbery",145, 137) , _target(target)
+PresidentialPardonForm::PresidentialPardonForm(std::string target) : AForm("Presidential",25,5) , _target(target)
 {
-	std::cout << GREEN "Constructor" CLOSE " called" << std::endl;
+	std::cout << GREEN "Constructor PresidentialPardonForm " CLOSE "called" << std::endl;
 	return;
 }
 
@@ -32,7 +32,7 @@ PresidentialPardonForm::PresidentialPardonForm( PresidentialPardonForm const &co
 
 PresidentialPardonForm::~PresidentialPardonForm()
 {
-	std::cout << RED "Destructor" CLOSE " called" << std::endl;	
+	std::cout << RED "Destructor PresidentialPardonForm" CLOSE " called" << std::endl;	
 	return;
 }
 
@@ -47,7 +47,7 @@ void PresidentialPardonForm::execute(Bureaucrat const & executor) const
 {
 	if (executor.getGrade() < _grade_signed && _signed == true )
 	{
-		std::cout << executor.getName() << std::endl;	
+		std::cout << executor.getName() << ": ";	
 		std::cout << _target << " forgive by Zaphod Beeblebrox." << std::endl;
 	}
 	else

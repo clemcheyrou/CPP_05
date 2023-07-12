@@ -6,7 +6,7 @@
 /*   By: ccheyrou <ccheyrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 20:24:02 by ccheyrou          #+#    #+#             */
-/*   Updated: 2023/05/22 16:13:05 by ccheyrou         ###   ########.fr       */
+/*   Updated: 2023/07/12 16:26:09 by ccheyrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ class Bureaucrat;
 class AForm
 {
 protected:
-	std::string	_name;
-	const int	_grade_signed;
-	const int 	_grade_exec;
-	bool		_signed;
+	const std::string	_name;
+	const int		_grade_signed;
+	const int 		_grade_exec;
+	bool			_signed;
 
 public:
 

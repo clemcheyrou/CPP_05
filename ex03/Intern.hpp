@@ -6,7 +6,7 @@
 /*   By: ccheyrou <ccheyrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 16:43:54 by ccheyrou          #+#    #+#             */
-/*   Updated: 2023/05/22 17:58:40 by ccheyrou         ###   ########.fr       */
+/*   Updated: 2023/07/12 16:49:07 by ccheyrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ private:
 
 public:
 
-	Intern( void );
-	Intern( Intern const &copy );
-	~Intern( void );
+	Intern(void);
+	Intern(Intern const &copy);
+	~Intern(void);
 
 	Intern& operator=( Intern const & rhs );
 
@@ -36,6 +36,14 @@ public:
 	AForm* formrob(std::string const & target);
 	
 	AForm* makeForm( std::string const & nameform, std::string const & target);
+
+	class FormNotCreated : public std::exception
+	{
+		virtual const char* what() const throw()
+		{
+			return (ORANGE "Form doesn't exist! Choose between : shrubbery, presidential, robotomy" CLOSE);
+		}
+	};
 };
 
 #endif

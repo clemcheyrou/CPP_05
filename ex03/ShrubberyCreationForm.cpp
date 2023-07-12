@@ -6,7 +6,7 @@
 /*   By: ccheyrou <ccheyrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 22:58:08 by ccheyrou          #+#    #+#             */
-/*   Updated: 2023/05/22 16:06:39 by ccheyrou         ###   ########.fr       */
+/*   Updated: 2023/07/12 16:15:29 by ccheyrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 
 ShrubberyCreationForm::ShrubberyCreationForm() : AForm("Shrubbery",145,137), _target("default")
 {
-	std::cout << GREEN "Constructor" CLOSE " called" << std::endl;
+	std::cout << GREEN "Constructor ShrubberyCreationForm" CLOSE " called" << std::endl;
 	return;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm("Shrubbery",145, 137) , _target(target)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm("Shrubbery",145,137) , _target(target)
 {
-	std::cout << GREEN "Constructor" CLOSE " called" << std::endl;
+	std::cout << GREEN "Constructor ShrubberyCreationForm" CLOSE " called" << std::endl;
 	return;
 }
 
@@ -33,7 +33,7 @@ ShrubberyCreationForm::ShrubberyCreationForm( ShrubberyCreationForm const &copy 
 
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {
-	std::cout << RED "Destructor" CLOSE " called" << std::endl;	
+	std::cout << RED "Destructor ShrubberyCreationForm" CLOSE " called" << std::endl;	
 	return;
 }
 
@@ -48,8 +48,8 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
 	if (executor.getGrade() < _grade_signed && _signed == true)
 	{
-		std::cout << executor.getName() << std::endl;	
-		std::string  name = _target + "_shrubery"; 
+		std::cout << executor.getName() << " create Tree File" << std::endl;	
+		std::string  name = _target + "_shrubbery"; 
 		std::ofstream ofs(name.c_str());
 
 		ofs << 

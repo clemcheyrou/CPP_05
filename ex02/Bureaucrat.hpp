@@ -6,7 +6,7 @@
 /*   By: ccheyrou <ccheyrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 14:43:15 by ccheyrou          #+#    #+#             */
-/*   Updated: 2023/05/19 17:41:24 by ccheyrou         ###   ########.fr       */
+/*   Updated: 2023/07/12 16:26:47 by ccheyrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class AForm;
 class Bureaucrat {
 
 private:
-	std::string _name;
+	const std::string _name;
 	int			_grade;
 
 public:
@@ -43,7 +43,7 @@ public:
 	int incrementGrade();
 	int decrementGrade();
 	
-	void signForm(AForm const &form) const;
+	void signForm(AForm &form);
 
 	void executeForm(AForm const & form);
 

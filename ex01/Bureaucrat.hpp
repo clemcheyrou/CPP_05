@@ -6,7 +6,7 @@
 /*   By: ccheyrou <ccheyrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 14:43:15 by ccheyrou          #+#    #+#             */
-/*   Updated: 2023/05/22 14:07:49 by ccheyrou         ###   ########.fr       */
+/*   Updated: 2023/07/12 16:33:24 by ccheyrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ class Form;
 class Bureaucrat {
 
 private:
-	std::string _name;
-	int			_grade;
+	const std::string 	_name;
+	int					_grade;
 
 public:
 	Bureaucrat();
